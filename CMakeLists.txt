@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(
-  CSTokenModel VERSION 1.0
+  CSTokenModelProject VERSION 1.0
   DESCRIPTION "CSToken model strustures."
   LANGUAGES CXX C
 )
