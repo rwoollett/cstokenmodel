@@ -22,3 +22,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # endif()
 
 add_subdirectory(model)
+
+target_include_directories(
+  CSTokenModel PUBLIC 
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+  $<INSTALL_INTERFACE:include>
+)
+

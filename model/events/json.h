@@ -3,7 +3,7 @@
 #include "Actions.h"
 #include "../timestamp.h"
 #include <string>
-#include "../../nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 using json = nlohmann::json;
 using Model::formatDate;
 using Model::parseDate;
