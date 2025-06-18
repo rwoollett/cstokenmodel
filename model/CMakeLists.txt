@@ -17,6 +17,5 @@ add_library(CSTokenModel
 
 target_include_directories(
   CSTokenModel PUBLIC .
-  ${LIBPQ_INCLUDE_DIRS}
 )
 
