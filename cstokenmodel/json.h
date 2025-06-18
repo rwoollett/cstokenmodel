@@ -112,28 +112,4 @@ namespace Model
     jsonIn.at("ip").get_to(value.ip);
   }
 
-  // namespace Json::ClientConnectCS
-  // {
-  //   std::string toJson(const Model::ClientConnectCS &clientCS);
-  //   Model::ClientConnectCS fromJson(const std::string &json);
-  // }
-
-  // namespace Json::ClientDisconnectCS
-  // {
-  //   std::string toJson(const Model::ClientDisconnectCS &clientCS);
-  //   Model::ClientDisconnectCS fromJson(const std::string &json);
-  // }
-
-  // namespace Json::CSTokenRequest
-  // {
-  //   std::string toJson(const Model::CSTokenRequest &req);
-  //   Model::CSTokenRequest fromJson(const std::string &json);
-  // }
-
-  // namespace Json::CSTokenAcquire
-  // {
-  //   std::string toJson(const Model::CSTokenAcquire &req);
-  //   Model::CSTokenAcquire fromJson(const std::string &json);
-  // }
-
 } // namespace Model
