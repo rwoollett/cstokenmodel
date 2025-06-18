@@ -21,11 +21,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #   message(FATAL_ERROR "libpq not found via pkg-config")
 # endif()
 
-add_subdirectory(model)
-
-target_include_directories(
-  CSTokenModel PUBLIC 
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-  $<INSTALL_INTERFACE:include>
-)
+add_subdirectory(cstokenmodel)
 

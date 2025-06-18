@@ -15,3 +15,9 @@ add_library(CSTokenModel
   timestamp.h
 )
 
+
+target_include_directories(
+  CSTokenModel PUBLIC 
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>/..
+  $<INSTALL_INTERFACE:include>
+)
