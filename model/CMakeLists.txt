@@ -16,6 +16,6 @@ add_library(CSTokenModel
 )
 
 target_include_directories(
-  CSTokenModel PUBLIC .
+  CSTokenModel PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}
 )
 
