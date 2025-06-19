@@ -26,8 +26,8 @@ namespace Events
   static const std::map<std::string_view, Subject> SubjectFromNames = {
       {"clientCS_Connected", Subject::ClientCSConnected},
       {"clientCS_Disconnected", Subject::ClientCSDisconnected},
-      {"requestCS_Created", Subject::CSTokenRequest},
-      {"acquireCS_Created", Subject::CSTokenAcquire}};
+      {"csToken_request", Subject::CSTokenRequest},
+      {"csToken_acquire", Subject::CSTokenAcquire}};
 
 }
 #endif // EVENT_SUBJECTS_H
