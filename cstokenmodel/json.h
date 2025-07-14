@@ -6,7 +6,7 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
-namespace Model
+namespace CSTokenModel
 {
 
   inline void to_json(json &jsonOut, ClientCS const &value)

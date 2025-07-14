@@ -4,21 +4,21 @@
 
 #ifdef LIBPQ_FOUND
 #include <libpq-fe.h>
-namespace Model::PG
+namespace CSTokenModel::PG
 {
   namespace ClientCS
   {
-    Model::ClientCS fromPGRes(PGresult *res, int nCols, int rowIndex = 0);
+    CSTokenModel::ClientCS fromPGRes(PGresult *res, int nCols, int rowIndex = 0);
   }
 
   namespace ClientConnectCS
   {
-    Model::ClientConnectCS fromPGRes(PGresult *res, int nCols, int rowIndex = 0);
+    CSTokenModel::ClientConnectCS fromPGRes(PGresult *res, int nCols, int rowIndex = 0);
   }
 
   namespace ClientDisconnectCS
   {
-    Model::ClientDisconnectCS fromPGRes(PGresult * res, int nCols, int rowIndex = 0);
+    CSTokenModel::ClientDisconnectCS fromPGRes(PGresult * res, int nCols, int rowIndex = 0);
   }
 
 } // namespace Model

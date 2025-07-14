@@ -1,33 +1,33 @@
 #include "ClientCS.h"
 
-namespace Model
+namespace CSTokenModel
 {
 
-  bool Validate::ClientCS(const Model::ClientCS &c)
+  bool Validate::ClientCS(const CSTokenModel::ClientCS &c)
   {
     return !(c.name.empty() ||
              c.host.empty() ||
              c.ip.empty());
   }
 
-  bool Validate::ClientConnectCS(const Model::ClientConnectCS &c)
+  bool Validate::ClientConnectCS(const CSTokenModel::ClientConnectCS &c)
   {
     return !(c.sourceIp.empty());
   }
 
-  bool Validate::ClientDisconnectCS(const Model::ClientDisconnectCS &c)
+  bool Validate::ClientDisconnectCS(const CSTokenModel::ClientDisconnectCS &c)
   {
     return !(c.sourceIp.empty());
   }
 
-  bool Validate::CSTokenRequest(const Model::CSTokenRequest &o)
+  bool Validate::CSTokenRequest(const CSTokenModel::CSTokenRequest &o)
   {
     return !(o.sourceIp.empty() ||
              o.originalIp.empty() ||
              o.parentIp.empty());
   }
 
-  bool Validate::CSTokenAcquire(const Model::CSTokenAcquire &o)
+  bool Validate::CSTokenAcquire(const CSTokenModel::CSTokenAcquire &o)
   {
     return !(o.sourceIp.empty() ||
              o.ip.empty());

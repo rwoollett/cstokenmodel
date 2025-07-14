@@ -5,7 +5,7 @@
 #include <string>
 #include <map>
 
-namespace Events
+namespace CSTokenEvents
 {
   
   enum class Subject

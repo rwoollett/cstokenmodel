@@ -10,7 +10,7 @@
 #endif
 
 #ifdef LIBPQ_FOUND
-namespace Model::PG
+namespace CSTokenModel::PG
 {
   std::unordered_map<std::string, int> mapFieldCols(PGresult *res, int nCols)
   {
@@ -35,9 +35,9 @@ namespace Model::PG
     return std::string(PQgetvalue(res, rowIndex, fieldColumns.at(key)));
   };
 
-  Model::ClientCS ClientCS::fromPGRes(PGresult *res, int nCols, int rowIndex)
+  CSTokenModel::ClientCS ClientCS::fromPGRes(PGresult *res, int nCols, int rowIndex)
   {
-    Model::ClientCS clientCS{};
+    CSTokenModel::ClientCS clientCS{};
     auto fieldColumns = mapFieldCols(res, nCols);
     auto const getString = [res, rowIndex, &fieldColumns](const std::string &key)
     {
@@ -76,10 +76,10 @@ namespace Model::PG
     return clientCS;
   }
 
-  Model::ClientConnectCS ClientConnectCS::fromPGRes(PGresult *res, int nCols, int rowIndex)
+  CSTokenModel::ClientConnectCS ClientConnectCS::fromPGRes(PGresult *res, int nCols, int rowIndex)
   {
 
-    Model::ClientConnectCS clientConnectCS{};
+    CSTokenModel::ClientConnectCS clientConnectCS{};
     auto fieldColumns = mapFieldCols(res, nCols);
     auto const getString = [res, rowIndex, &fieldColumns](const std::string &key)
     {
@@ -108,10 +108,10 @@ namespace Model::PG
     return clientConnectCS;
   }
   
-  Model::ClientDisconnectCS ClientDisconnectCS::fromPGRes(PGresult *res, int nCols, int rowIndex)
+  CSTokenModel::ClientDisconnectCS ClientDisconnectCS::fromPGRes(PGresult *res, int nCols, int rowIndex)
   {
 
-    Model::ClientDisconnectCS clientDisconnectCS{};
+    CSTokenModel::ClientDisconnectCS clientDisconnectCS{};
     auto fieldColumns = mapFieldCols(res, nCols);
     auto const getString = [res, rowIndex, &fieldColumns](const std::string &key)
     {

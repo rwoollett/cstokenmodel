@@ -9,7 +9,7 @@
 #include <iostream>
 #include <chrono>
 
-namespace Model
+namespace CSTokenModel
 {
 
   // Define a struct to encapsulate ClientCS
@@ -74,11 +74,11 @@ namespace Model
 
   namespace Validate
   {
-    bool ClientCS(const Model::ClientCS &c);
-    bool ClientConnectCS(const Model::ClientConnectCS &c);
-    bool ClientDisconnectCS(const Model::ClientDisconnectCS &c);
-    bool CSTokenRequest(const Model::CSTokenRequest &obj);
-    bool CSTokenAcquire(const Model::CSTokenAcquire &obj);
+    bool ClientCS(const CSTokenModel::ClientCS &c);
+    bool ClientConnectCS(const CSTokenModel::ClientConnectCS &c);
+    bool ClientDisconnectCS(const CSTokenModel::ClientDisconnectCS &c);
+    bool CSTokenRequest(const CSTokenModel::CSTokenRequest &obj);
+    bool CSTokenAcquire(const CSTokenModel::CSTokenAcquire &obj);
   }
   // class NetworkMessage
   // {

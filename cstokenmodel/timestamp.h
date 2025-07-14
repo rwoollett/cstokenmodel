@@ -6,7 +6,7 @@
 #include <chrono>
 #include <optional>
 
-namespace Model
+namespace CSTokenModel
 {
 
   template <typename... Args>

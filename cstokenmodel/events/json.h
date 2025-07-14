@@ -5,10 +5,10 @@
 #include <string>
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
-using Model::formatDate;
-using Model::parseDate;
+using CSTokenModel::formatDate;
+using CSTokenModel::parseDate;
 
-namespace Events
+namespace CSTokenEvents
 {
 
   inline void to_json(json &jsonOut, ClientConnectEvent const &value)

@@ -6,7 +6,7 @@
 #include <string>
 #include <chrono>
 
-namespace Events
+namespace CSTokenEvents
 {
   // Define a struct to encapsulate Connect/Disconnect ClientCS
   struct ClientConnectEvent
