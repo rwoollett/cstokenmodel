@@ -54,8 +54,8 @@ namespace CSTokenModel::PG
       clientCS.processId = getString("processId");
       clientCS.connectedAt = getString("connectedAt");
       clientCS.disconnectedAt = getString("disconnectedAt");
-      auto tpOptCA = parseDate(getString("connectedAt"));
-      auto tpOptDA = parseDate(getString("disconnectedAt"));
+      auto tpOptCA = CSTokenModel::parseDate(getString("connectedAt"));
+      auto tpOptDA = CSTokenModel::parseDate(getString("disconnectedAt"));
       if (tpOptCA)
         clientCS.tpConnectedAt = *tpOptCA;
       if (tpOptDA)
@@ -92,7 +92,7 @@ namespace CSTokenModel::PG
       clientConnectCS.connected = (getString("connected") == "t");
       clientConnectCS.processId = getString("processId");
       clientConnectCS.connectedAt = getString("connectedAt");
-      auto tpOptCA = parseDate(getString("connectedAt"));
+      auto tpOptCA = CSTokenModel::parseDate(getString("connectedAt"));
       if (tpOptCA)
         clientConnectCS.tpConnectedAt = *tpOptCA;
     }
