@@ -41,7 +41,7 @@ namespace CSTokenEvents
   {
     json obj;
     obj["sourceIp"] = value.sourceIp;
-    obj["disconnectedAt"] = formatDate(value.tpDisconnectedAt);
+    obj["disconnectedAt"] = CSTokenModel::formatDate(value.tpDisconnectedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::ClientCSDisconnected)
     {
@@ -70,7 +70,7 @@ namespace CSTokenEvents
     obj["originalIp"] = value.originalIp;
     obj["parentIp"] = value.parentIp;
     obj["relayed"] = value.relayed;
-    obj["requestedAt"] = formatDate(value.tpRequestedAt);
+    obj["requestedAt"] = CSTokenModel::formatDate(value.tpRequestedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::CSTokenRequest)
     {
@@ -100,7 +100,7 @@ namespace CSTokenEvents
     json obj;
     obj["sourceIp"] = value.sourceIp;
     obj["ip"] = value.ip;
-    obj["acquiredAt"] = formatDate(value.tpAcquiredAt);
+    obj["acquiredAt"] = CSTokenModel::formatDate(value.tpAcquiredAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::CSTokenAcquire)
     {
