@@ -18,16 +18,16 @@ namespace CSTokenEvents
   };
 
   static const std::map<Subject, std::string_view> SubjectNames = {
-      {Subject::ClientCSConnected, "clientCS_Connected"},
-      {Subject::ClientCSDisconnected, "clientCS_Disconnected"},
-      {Subject::CSTokenRequest, "csToken_request"},
-      {Subject::CSTokenAcquire, "csToken_acquire"}};
+      {Subject::ClientCSConnected, "cstoken_client_Connected"},
+      {Subject::ClientCSDisconnected, "cstoken_client_Disconnected"},
+      {Subject::CSTokenRequest, "cstoken_token_Request"},
+      {Subject::CSTokenAcquire, "cstoken_token_Acquire"}};
 
   static const std::map<std::string_view, Subject> SubjectFromNames = {
-      {"clientCS_Connected", Subject::ClientCSConnected},
-      {"clientCS_Disconnected", Subject::ClientCSDisconnected},
-      {"csToken_request", Subject::CSTokenRequest},
-      {"csToken_acquire", Subject::CSTokenAcquire}};
+      {"cstoken_client_Connected", Subject::ClientCSConnected},
+      {"cstoken_client_Disconnected", Subject::ClientCSDisconnected},
+      {"cstoken_token_Request", Subject::CSTokenRequest},
+      {"cstoken_token_Acquire", Subject::CSTokenAcquire}};
 
 }
 #endif // EVENT_SUBJECTS_H
