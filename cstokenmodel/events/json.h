@@ -145,8 +145,8 @@ namespace CSTokenEvents
     value.subject = SubjectFromNames.at(subject);
     obj.at("serviceMessage").get_to(value.serviceMessage);
     obj.at("ip").get_to(value.ip);
-    obj.at("processedAt").get_to(value.tpProcessedAt);
-    auto tpOpt = CSTokenModel::parseDate(value.tpProcessedAt);
+    obj.at("processedAt").get_to(value.processedAt);
+    auto tpOpt = CSTokenModel::parseDate(value.processedAt);
     if (tpOpt)
       value.tpProcessedAt = *tpOpt;
   };
