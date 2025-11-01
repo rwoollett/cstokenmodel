@@ -71,6 +71,13 @@ namespace CSTokenModel
     CSTokenAcquire() = default;
   };
 
+  struct CSProcessedService
+  {
+    std::string ip;
+    std::string serviceMessage;
+    CSProcessedService() = default;
+  };
+
 
   namespace Validate
   {
@@ -79,6 +86,7 @@ namespace CSTokenModel
     bool ClientDisconnectCS(const CSTokenModel::ClientDisconnectCS &c);
     bool CSTokenRequest(const CSTokenModel::CSTokenRequest &obj);
     bool CSTokenAcquire(const CSTokenModel::CSTokenAcquire &obj);
+    bool CSProcessedService(const CSTokenModel::CSProcessedService &obj);
   }
   // class NetworkMessage
   // {

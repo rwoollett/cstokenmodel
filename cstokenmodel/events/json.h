@@ -122,5 +122,33 @@ namespace CSTokenEvents
     if (tpOpt)
       value.tpAcquiredAt = *tpOpt;
   };
+  
+  inline void to_json(json &jsonOut, CSProcessedServiceEvent const &value)
+  {
+    json obj;
+    obj["serviceMessage"] = value.serviceMessage;
+    obj["ip"] = value.ip;
+    obj["processedAt"] = CSTokenModel::formatDate(value.tpProcessedAt);
+    jsonOut["payload"] = obj;
+    if (value.subject != Subject::CSProcessedService)
+    {
+      throw std::string("CSProcessedServiceEvent::to_json - Subject should be CSProcessedService");
+    }
+    jsonOut["subject"] = SubjectNames.at(value.subject);
+  }
+
+  inline void from_json(json const &jsonIn, CSProcessedServiceEvent &value)
+  {
+    json obj = jsonIn.at("payload");
+    std::string subject;
+    jsonIn.at("subject").get_to(subject);
+    value.subject = SubjectFromNames.at(subject);
+    obj.at("serviceMessage").get_to(value.serviceMessage);
+    obj.at("ip").get_to(value.ip);
+    obj.at("processedAt").get_to(value.tpProcessedAt);
+    auto tpOpt = CSTokenModel::parseDate(value.tpProcessedAt);
+    if (tpOpt)
+      value.tpProcessedAt = *tpOpt;
+  };
 
 } // namespace Events

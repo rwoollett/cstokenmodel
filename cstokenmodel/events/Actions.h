@@ -50,5 +50,15 @@ namespace CSTokenEvents
     CSTokenAcquireEvent() = default;
   };
 
+  struct CSProcessedServiceEvent
+  {
+    Subject subject{Subject::CSProcessedService};
+    std::string ip;
+    std::string serviceMessage;
+    std::string processedAt;
+    std::chrono::system_clock::time_point tpProcessedAt{};
+    CSProcessedServiceEvent() = default;
+  };
+
 }
 #endif // EVENT_ACTIONS_H

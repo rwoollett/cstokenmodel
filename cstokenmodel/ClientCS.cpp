@@ -33,6 +33,11 @@ namespace CSTokenModel
              o.ip.empty());
   }
 
+  bool Validate::CSProcessedService(const CSTokenModel::CSProcessedService &o)
+  {
+    return !(o.ip.empty() ||
+             o.serviceMessage.empty());
+  }
   // NetworkMessage::NetworkMessage(MessageType msg_type, std::string sourceHost, std::string sourceIp) : m_type(msg_type),
   //                                                                                                      m_source(sourceHost, sourceIp)
   // {

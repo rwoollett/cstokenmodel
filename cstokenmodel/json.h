@@ -112,4 +112,17 @@ namespace CSTokenModel
     jsonIn.at("ip").get_to(value.ip);
   }
 
+  
+  inline void to_json(json &jsonOut, CSProcessedService const &value)
+  {
+    jsonOut["serviceMessage"] = value.serviceMessage;
+    jsonOut["ip"] = value.ip;
+  }
+
+  inline void from_json(json const &jsonIn, CSProcessedService &value)
+  {
+    jsonIn.at("serviceMessage").get_to(value.serviceMessage);
+    jsonIn.at("ip").get_to(value.ip);
+  }
+
 } // namespace Model
