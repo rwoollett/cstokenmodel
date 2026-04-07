@@ -18,13 +18,13 @@ namespace CSTokenModel
     std::string name;
     std::string host;
     std::string ip;
-    bool connected;
+    bool connected = false;
     std::string processId;
     std::string connectedAt;
     std::chrono::system_clock::time_point tpConnectedAt{};
     std::string disconnectedAt;
     std::chrono::system_clock::time_point tpDisconnectedAt{};
-    int parentId;         // From RequestParent
+    int parentId = 0;         // From RequestParent
     std::string clientIp; // From RequestParent (same as id of ClientCS)
 
     ClientCS() = default;
@@ -36,7 +36,7 @@ namespace CSTokenModel
   struct ClientConnectCS
   {
     std::string sourceIp;
-    bool connected;
+    bool connected = false;
     std::string processId;
     std::string connectedAt;
     std::chrono::system_clock::time_point tpConnectedAt{};
@@ -48,7 +48,7 @@ namespace CSTokenModel
   struct ClientDisconnectCS
   {
     std::string sourceIp;
-    bool connected;
+    bool connected = false;
     std::string disconnectedAt;
     std::chrono::system_clock::time_point tpDisconnectedAt{};
 
@@ -60,7 +60,7 @@ namespace CSTokenModel
     std::string sourceIp;
     std::string originalIp;
     std::string parentIp;
-    bool relayed;
+    bool relayed = false;
     CSTokenRequest() = default;
   };
 

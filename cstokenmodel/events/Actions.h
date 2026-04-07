@@ -35,7 +35,7 @@ namespace CSTokenEvents
     std::string originalIp;
     std::string parentIp;
     std::string requestedAt;
-    bool relayed;
+    bool relayed = false;
     std::chrono::system_clock::time_point tpRequestedAt{};
     CSTokenRequestEvent() = default;
   };
