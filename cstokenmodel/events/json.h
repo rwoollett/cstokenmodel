@@ -33,7 +33,7 @@ namespace CSTokenEvents
     obj.at("sourceIp").get_to(value.sourceIp);
     obj.at("processId").get_to(value.processId);
     obj.at("connectedAt").get_to(value.connectedAt);
-    auto tpOptCA = CSTokenModel::parseDate(value.connectedAt);
+    auto tpOptCA = parseDate(value.connectedAt);
     if (tpOptCA)
       value.tpConnectedAt = *tpOptCA;
   };
@@ -59,7 +59,7 @@ namespace CSTokenEvents
     value.subject = SubjectFromNames.at(subject);
     obj.at("sourceIp").get_to(value.sourceIp);
     obj.at("disconnectedAt").get_to(value.disconnectedAt);
-    auto tpOptCA = CSTokenModel::parseDate(value.disconnectedAt);
+    auto tpOptCA = parseDate(value.disconnectedAt);
     if (tpOptCA)
       value.tpDisconnectedAt = *tpOptCA;
   };
@@ -91,7 +91,7 @@ namespace CSTokenEvents
     obj.at("parentIp").get_to(value.parentIp);
     obj.at("relayed").get_to(value.relayed);
     obj.at("requestedAt").get_to(value.requestedAt);
-    auto tpOpt = CSTokenModel::parseDate(value.requestedAt);
+    auto tpOpt = parseDate(value.requestedAt);
     if (tpOpt)
       value.tpRequestedAt = *tpOpt;
   };
@@ -119,7 +119,7 @@ namespace CSTokenEvents
     obj.at("sourceIp").get_to(value.sourceIp);
     obj.at("ip").get_to(value.ip);
     obj.at("acquiredAt").get_to(value.acquiredAt);
-    auto tpOpt = CSTokenModel::parseDate(value.acquiredAt);
+    auto tpOpt = parseDate(value.acquiredAt);
     if (tpOpt)
       value.tpAcquiredAt = *tpOpt;
   };
@@ -147,7 +147,7 @@ namespace CSTokenEvents
     obj.at("serviceMessage").get_to(value.serviceMessage);
     obj.at("ip").get_to(value.ip);
     obj.at("processedAt").get_to(value.processedAt);
-    auto tpOpt = CSTokenModel::parseDate(value.processedAt);
+    auto tpOpt = parseDate(value.processedAt);
     if (tpOpt)
       value.tpProcessedAt = *tpOpt;
   };
