@@ -1,10 +1,11 @@
 #pragma once
 
 #include "ClientCS.h"
-#include "timestamp.h"
+#include "timestamp/timestamp.h"
 #include <string>
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
+using namespace Timestamp;
 
 namespace CSTokenModel
 {
@@ -16,8 +17,8 @@ namespace CSTokenModel
     jsonOut["ip"] = value.ip;
     jsonOut["connected"] = value.connected;
     jsonOut["processId"] = value.processId;
-    jsonOut["connectedAt"] = CSTokenModel::formatDate(value.tpConnectedAt);
-    jsonOut["disconnectedAt"] = CSTokenModel::formatDate(value.tpDisconnectedAt);
+    jsonOut["connectedAt"] = formatDate(value.tpConnectedAt);
+    jsonOut["disconnectedAt"] = formatDate(value.tpDisconnectedAt);
     jsonOut["parentId"] = value.parentId;
     jsonOut["clientIp"] = value.clientIp;
     json parent;
@@ -35,8 +36,8 @@ namespace CSTokenModel
     jsonIn.at("processId").get_to(value.processId);           //= getString("processId");
     jsonIn.at("connectedAt").get_to(value.connectedAt);       //= getString("connectedAt");
     jsonIn.at("disconnectedAt").get_to(value.disconnectedAt); //= getString("disconnectedAt");
-    auto tpOptCA = CSTokenModel::parseDate(value.connectedAt);
-    auto tpOptDA = CSTokenModel::parseDate(value.disconnectedAt);
+    auto tpOptCA = parseDate(value.connectedAt);
+    auto tpOptDA = parseDate(value.disconnectedAt);
     if (tpOptCA)
       value.tpConnectedAt = *tpOptCA;
     if (tpOptDA)
@@ -48,7 +49,7 @@ namespace CSTokenModel
     jsonOut["sourceIp"] = value.sourceIp;
     jsonOut["connected"] = value.connected;
     jsonOut["processId"] = value.processId;
-    jsonOut["connectedAt"] = CSTokenModel::formatDate(value.tpConnectedAt);
+    jsonOut["connectedAt"] = formatDate(value.tpConnectedAt);
   }
 
   inline void from_json(json const &jsonIn, ClientConnectCS &value)
@@ -59,7 +60,7 @@ namespace CSTokenModel
     if (jsonIn.contains("connectedAt"))
     {
       jsonIn.at("connectedAt").get_to(value.connectedAt);
-      auto tpOptCA = CSTokenModel::parseDate(value.connectedAt);
+      auto tpOptCA = parseDate(value.connectedAt);
       if (tpOptCA)
         value.tpConnectedAt = *tpOptCA;
     }
@@ -69,7 +70,7 @@ namespace CSTokenModel
   {
     jsonOut["sourceIp"] = value.sourceIp;
     jsonOut["connected"] = value.connected;
-    jsonOut["disconnectedAt"] = CSTokenModel::formatDate(value.tpDisconnectedAt);
+    jsonOut["disconnectedAt"] = formatDate(value.tpDisconnectedAt);
   }
 
   inline void from_json(json const &jsonIn, ClientDisconnectCS &value)
@@ -78,7 +79,7 @@ namespace CSTokenModel
     if (jsonIn.contains("disconnectedAt"))
     {
       jsonIn.at("disconnectedAt").get_to(value.disconnectedAt);
-      auto tpOpt = CSTokenModel::parseDate(value.disconnectedAt);
+      auto tpOpt = parseDate(value.disconnectedAt);
       if (tpOpt)
         value.tpDisconnectedAt = *tpOpt;
     }
