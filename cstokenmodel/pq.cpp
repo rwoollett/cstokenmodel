@@ -10,6 +10,7 @@
 #endif
 using namespace Timestamp;
 
+#ifdef LIBPQ_FOUND
 namespace CSTokenModel::PG
 {
   std::unordered_map<std::string, int> mapFieldCols(PGresult *res, int nCols)
@@ -140,3 +141,4 @@ namespace CSTokenModel::PG
   }
 
 } // namespace Model::PG
+#endif //LIBPQ_FOUND
