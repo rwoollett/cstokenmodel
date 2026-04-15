@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Actions.h"
-#include "../timestamp.h"
+#include "timestamp/timestamp.h"
 #include <string>
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
+using namespace Timestamp;
 
 namespace CSTokenEvents
 {
@@ -14,7 +15,7 @@ namespace CSTokenEvents
     json obj;
     obj["sourceIp"] = value.sourceIp;
     obj["processId"] = value.processId;
-    obj["connectedAt"] = CSTokenModel::formatDate(value.tpConnectedAt);
+    obj["connectedAt"] = formatDate(value.tpConnectedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::ClientCSConnected)
     {
@@ -41,7 +42,7 @@ namespace CSTokenEvents
   {
     json obj;
     obj["sourceIp"] = value.sourceIp;
-    obj["disconnectedAt"] = CSTokenModel::formatDate(value.tpDisconnectedAt);
+    obj["disconnectedAt"] = formatDate(value.tpDisconnectedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::ClientCSDisconnected)
     {
@@ -70,7 +71,7 @@ namespace CSTokenEvents
     obj["originalIp"] = value.originalIp;
     obj["parentIp"] = value.parentIp;
     obj["relayed"] = value.relayed;
-    obj["requestedAt"] = CSTokenModel::formatDate(value.tpRequestedAt);
+    obj["requestedAt"] = formatDate(value.tpRequestedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::CSTokenRequest)
     {
@@ -100,7 +101,7 @@ namespace CSTokenEvents
     json obj;
     obj["sourceIp"] = value.sourceIp;
     obj["ip"] = value.ip;
-    obj["acquiredAt"] = CSTokenModel::formatDate(value.tpAcquiredAt);
+    obj["acquiredAt"] = formatDate(value.tpAcquiredAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::CSTokenAcquire)
     {
@@ -128,7 +129,7 @@ namespace CSTokenEvents
     json obj;
     obj["serviceMessage"] = value.serviceMessage;
     obj["ip"] = value.ip;
-    obj["processedAt"] = CSTokenModel::formatDate(value.tpProcessedAt);
+    obj["processedAt"] = formatDate(value.tpProcessedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::CSProcessedService)
     {

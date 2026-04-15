@@ -2,7 +2,6 @@
 
 #include "ClientCS.h"
 
-#ifdef LIBPQ_FOUND
 #include <libpq-fe.h>
 namespace CSTokenModel::PG
 {
@@ -22,4 +21,3 @@ namespace CSTokenModel::PG
   }
 
 } // namespace Model
-#endif //LIBPQ_FOUND

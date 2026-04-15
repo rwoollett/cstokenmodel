@@ -11,10 +11,7 @@ add_library(CSTokenModel
   json.h
   pq.cpp
   pq.h
-  timestamp.cpp
-  timestamp.h
 )
-
 
 target_include_directories(
   CSTokenModel PUBLIC 

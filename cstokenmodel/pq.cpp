@@ -1,15 +1,15 @@
 #include "ClientCS.h"
 #include "pq.h"
 #include <unordered_map>
-#include "timestamp.h"
+#include "timestamp/timestamp.h"
 
 #ifdef NDEBUG
 #define D(x)
 #else
 #define D(x) x
 #endif
+using namespace Timestamp;
 
-#ifdef LIBPQ_FOUND
 namespace CSTokenModel::PG
 {
   std::unordered_map<std::string, int> mapFieldCols(PGresult *res, int nCols)
@@ -54,8 +54,8 @@ namespace CSTokenModel::PG
       clientCS.processId = getString("processId");
       clientCS.connectedAt = getString("connectedAt");
       clientCS.disconnectedAt = getString("disconnectedAt");
-      auto tpOptCA = CSTokenModel::parseDate(getString("connectedAt"));
-      auto tpOptDA = CSTokenModel::parseDate(getString("disconnectedAt"));
+      auto tpOptCA = parseDate(getString("connectedAt"));
+      auto tpOptDA = parseDate(getString("disconnectedAt"));
       if (tpOptCA)
         clientCS.tpConnectedAt = *tpOptCA;
       if (tpOptDA)
@@ -92,7 +92,7 @@ namespace CSTokenModel::PG
       clientConnectCS.connected = (getString("connected") == "t");
       clientConnectCS.processId = getString("processId");
       clientConnectCS.connectedAt = getString("connectedAt");
-      auto tpOptCA = CSTokenModel::parseDate(getString("connectedAt"));
+      auto tpOptCA = parseDate(getString("connectedAt"));
       if (tpOptCA)
         clientConnectCS.tpConnectedAt = *tpOptCA;
     }
@@ -140,4 +140,3 @@ namespace CSTokenModel::PG
   }
 
 } // namespace Model::PG
-#endif // LIBPQ_FOUND
