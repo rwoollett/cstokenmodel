@@ -24,8 +24,8 @@ namespace CSTokenModel
     std::chrono::system_clock::time_point tpConnectedAt{};
     std::string disconnectedAt;
     std::chrono::system_clock::time_point tpDisconnectedAt{};
-    int parentId = 0;         // From RequestParent
-    std::string clientIp; // From RequestParent (same as id of ClientCS)
+    // int parentId = 0;         // From RequestParent
+    // std::string clientIp; // From RequestParent (same as id of ClientCS)
 
     ClientCS() = default;
     ClientCS(const std::string &h, const std::string &s) : host(h), ip(s) {}

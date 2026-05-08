@@ -19,12 +19,12 @@ namespace CSTokenModel
     jsonOut["processId"] = value.processId;
     jsonOut["connectedAt"] = formatDate(value.tpConnectedAt);
     jsonOut["disconnectedAt"] = formatDate(value.tpDisconnectedAt);
-    jsonOut["parentId"] = value.parentId;
-    jsonOut["clientIp"] = value.clientIp;
-    json parent;
-    parent["id"] = value.parentId;
-    parent["clientIp"] = value.clientIp;
-    jsonOut["requestParent"] = parent;
+    // jsonOut["parentId"] = value.parentId;
+    // jsonOut["clientIp"] = value.clientIp;
+    // json parent;
+    // parent["id"] = value.parentId;
+    // parent["clientIp"] = value.clientIp;
+    // jsonOut["requestParent"] = parent;
   }
 
   inline void from_json(json const &jsonIn, ClientCS &value)

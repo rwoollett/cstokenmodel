@@ -62,8 +62,8 @@ namespace CSTokenModel::PG
       if (tpOptDA)
         clientCS.tpDisconnectedAt = *tpOptDA;
 
-      clientCS.parentId = std::atoi(getString("parentId").c_str());
-      clientCS.clientIp = getString("clientIp");
+      // clientCS.parentId = std::atoi(getString("parentId").c_str());
+      // clientCS.clientIp = getString("clientIp");
     }
     catch (const std::string &e)
     {
