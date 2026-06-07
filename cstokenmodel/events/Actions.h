@@ -13,6 +13,7 @@ namespace CSTokenEvents
   {
     Subject subject{Subject::ClientCSConnected};
     std::string sourceIp;
+    uint64_t seqNo{};
     std::string processId;
     std::string connectedAt;
     std::chrono::system_clock::time_point tpConnectedAt{};
@@ -23,6 +24,7 @@ namespace CSTokenEvents
   {
     Subject subject{Subject::ClientCSDisconnected};
     std::string sourceIp;
+    uint64_t seqNo{};
     std::string disconnectedAt;
     std::chrono::system_clock::time_point tpDisconnectedAt{};
     ClientDisconnectEvent() = default;
@@ -32,6 +34,7 @@ namespace CSTokenEvents
   {
     Subject subject{Subject::CSTokenRequest};
     std::string sourceIp;
+    uint64_t seqNo{};
     std::string originalIp;
     std::string parentIp;
     std::string requestedAt;
@@ -44,6 +47,7 @@ namespace CSTokenEvents
   {
     Subject subject{Subject::CSTokenAcquire};
     std::string ip;
+    uint64_t seqNo{};
     std::string sourceIp;
     std::string acquiredAt;
     std::chrono::system_clock::time_point tpAcquiredAt{};
@@ -54,6 +58,7 @@ namespace CSTokenEvents
   {
     Subject subject{Subject::CSProcessedService};
     std::string ip;
+    uint64_t seqNo{};
     std::string serviceMessage;
     std::string processedAt;
     std::chrono::system_clock::time_point tpProcessedAt{};

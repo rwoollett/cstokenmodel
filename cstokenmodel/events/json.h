@@ -14,6 +14,7 @@ namespace CSTokenEvents
   {
     json obj;
     obj["sourceIp"] = value.sourceIp;
+    obj["seqNo"] = value.seqNo;
     obj["processId"] = value.processId;
     obj["connectedAt"] = formatDate(value.tpConnectedAt);
     jsonOut["payload"] = obj;
@@ -31,6 +32,7 @@ namespace CSTokenEvents
     jsonIn.at("subject").get_to(subject);
     value.subject = SubjectFromNames.at(subject);
     obj.at("sourceIp").get_to(value.sourceIp);
+    obj.at("seqNo").get_to(value.seqNo);
     obj.at("processId").get_to(value.processId);
     obj.at("connectedAt").get_to(value.connectedAt);
     auto tpOptCA = parseDate(value.connectedAt);
@@ -42,6 +44,7 @@ namespace CSTokenEvents
   {
     json obj;
     obj["sourceIp"] = value.sourceIp;
+    obj["seqNo"] = value.seqNo;
     obj["disconnectedAt"] = formatDate(value.tpDisconnectedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::ClientCSDisconnected)
@@ -58,6 +61,7 @@ namespace CSTokenEvents
     jsonIn.at("subject").get_to(subject);
     value.subject = SubjectFromNames.at(subject);
     obj.at("sourceIp").get_to(value.sourceIp);
+    obj.at("seqNo").get_to(value.seqNo);
     obj.at("disconnectedAt").get_to(value.disconnectedAt);
     auto tpOptCA = parseDate(value.disconnectedAt);
     if (tpOptCA)
@@ -68,6 +72,7 @@ namespace CSTokenEvents
   {
     json obj;
     obj["sourceIp"] = value.sourceIp;
+    obj["seqNo"] = value.seqNo;
     obj["originalIp"] = value.originalIp;
     obj["parentIp"] = value.parentIp;
     obj["relayed"] = value.relayed;
@@ -87,6 +92,7 @@ namespace CSTokenEvents
     jsonIn.at("subject").get_to(subject);
     value.subject = SubjectFromNames.at(subject);
     obj.at("sourceIp").get_to(value.sourceIp);
+    obj.at("seqNo").get_to(value.seqNo);
     obj.at("originalIp").get_to(value.originalIp);
     obj.at("parentIp").get_to(value.parentIp);
     obj.at("relayed").get_to(value.relayed);
@@ -101,6 +107,7 @@ namespace CSTokenEvents
     json obj;
     obj["sourceIp"] = value.sourceIp;
     obj["ip"] = value.ip;
+    obj["seqNo"] = value.seqNo;
     obj["acquiredAt"] = formatDate(value.tpAcquiredAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::CSTokenAcquire)
@@ -118,17 +125,19 @@ namespace CSTokenEvents
     value.subject = SubjectFromNames.at(subject);
     obj.at("sourceIp").get_to(value.sourceIp);
     obj.at("ip").get_to(value.ip);
+    obj.at("seqNo").get_to(value.seqNo);
     obj.at("acquiredAt").get_to(value.acquiredAt);
     auto tpOpt = parseDate(value.acquiredAt);
     if (tpOpt)
       value.tpAcquiredAt = *tpOpt;
   };
-  
+
   inline void to_json(json &jsonOut, CSProcessedServiceEvent const &value)
   {
     json obj;
     obj["serviceMessage"] = value.serviceMessage;
     obj["ip"] = value.ip;
+    obj["seqNo"] = value.seqNo;
     obj["processedAt"] = formatDate(value.tpProcessedAt);
     jsonOut["payload"] = obj;
     if (value.subject != Subject::CSProcessedService)
@@ -146,6 +155,7 @@ namespace CSTokenEvents
     value.subject = SubjectFromNames.at(subject);
     obj.at("serviceMessage").get_to(value.serviceMessage);
     obj.at("ip").get_to(value.ip);
+    obj.at("seqNo").get_to(value.seqNo);
     obj.at("processedAt").get_to(value.processedAt);
     auto tpOpt = parseDate(value.processedAt);
     if (tpOpt)
